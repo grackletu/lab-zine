@@ -1,0 +1,39 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=0pt]{geometry}
+\usepackage{graphicx}
+\usepackage{atbegshi}\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}} % The page rotations with \includegraphics leave the original page heights as an artifact, resulting in image bounding boxes that extend beyond the margins of page 1. This "overfull" page makes a blank page at the beginning as the program shifts the overfull page to the next page. This command removes that extra page 1. It isn't pretty coding, but it works :)
+
+%% Put the name of your zine pages (uploaded to your overleaf below).
+\newcommand{\zinepgs}{../grackle-zine.pdf}
+
+
+\newcommand\nextrow{\vspace*{-.75in}} % This command compensates for the bounding boxes mentioned above to make sure the pages are aligned.
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\includegraphics*[page=4,angle=270, origin=c]{\zinepgs}
+\includegraphics*[page=3,angle=90, origin=c]{\zinepgs}
+
+\nextrow
+
+\includegraphics*[page=5,angle=270, origin=c]{\zinepgs}
+\includegraphics*[page=2,angle=90, origin=c]{\zinepgs}
+
+\nextrow 
+
+\includegraphics*[page=6,angle=270, origin=c]{\zinepgs}
+\includegraphics*[page=1,angle=90, origin=c]{\zinepgs}
+
+\nextrow
+
+\includegraphics*[page=7,angle=270, origin=c]{\zinepgs}
+\includegraphics*[page=8,angle=90, origin=c]{\zinepgs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
